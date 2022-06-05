@@ -1,0 +1,61 @@
+PROBLEM my app solves:
+  - Website to upload recipes and then view/filter.
+  - Allow multiple people to add recipes to the same site.
+
+  Nice to haves
+  - login/multiple users
+  - ability to save recipe to favorites > like?
+  - Save recipes to a calender
+  - Automatically put ingredients on grocery list
+  - link to Fill grocery cart with ingredients
+  - link to purchase
+
+Inputs
+  Recipe:
+    ingredient list
+    ingredients have:
+      -amount
+      -units
+      -optional description
+    steps
+      -store each step separately?
+    author
+    type [Breakfast, lunch, fancy dinner]
+    cuisine [Italian, Indian]
+    difficulty
+    calories
+    length of time to cook
+    date uploaded default
+    url to recipe optional
+
+  Login?
+
+Output
+  Pages
+    Sign In
+    Home Page
+      recipe categories down the side
+      search at the bottom
+      list of popular recipes
+      list of recently uploaded recipes
+    Search Page
+    Recipe Page
+    Enter new Recipe Page
+
+============================================================
+Examples
+Recipe:
+  ingredient list
+  ingredients have:
+    -amount
+    -units
+    -optional description
+  author
+  type [Breakfast, lunch, fancy dinner]
+  cuisine [Italian, Indian]
+  difficulty
+  calories
+  length of time to cook
+  date uploaded default
+  url to recipe optional
+    https://sallysbakingaddiction.com/the-great-pumpkin-pie-recipe/
