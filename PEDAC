@@ -198,3 +198,27 @@ Database
 M:1  ingredients to recipe
 M:1  directions to recipe
 M:1  recipes to a planned meal    Not sure I'm classifying this right. FIX ME.
+
+================================================================================
+Algorithm
+
+Simple program
+  Add a recipe
+    Get Title
+      F: input box
+      B: store as variable
+    Get ingredient list
+      F: text area
+      B: store as variable
+    Get direction list
+      F: text area
+      B: store as variable
+  View a recipe
+    show title
+      F: show as h1
+    show ingredient list
+      F: unordered list <ul>
+    show direction list
+      F: ordered list
+  Delete a recipe
+    delete from database
