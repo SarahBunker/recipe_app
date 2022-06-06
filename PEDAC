@@ -1,17 +1,18 @@
 PROBLEM my app solves:
   - Website to upload recipes and then view/filter.
   - Allow multiple people to add recipes to the same site.
+  - Save recipes to a calender
 
   Nice to haves
   - login/multiple users
   - ability to save recipe to favorites > like?
-  - Save recipes to a calender
   - Automatically put ingredients on grocery list
   - link to Fill grocery cart with ingredients
   - link to purchase
 
 Inputs
   Recipe:
+    Title
     ingredient list
     ingredients have:
       -amount
@@ -19,6 +20,8 @@ Inputs
       -optional description
     steps
       -store each step separately?
+    Serving Size
+    Number of Servings
     author
     type [Breakfast, lunch, fancy dinner]
     cuisine [Italian, Indian]
@@ -27,6 +30,16 @@ Inputs
     length of time to cook
     date uploaded default
     url to recipe optional
+
+    other recipes as ingredients (dough for pizzas or rolls)
+
+  Calender
+    Days of Week
+    Meals of Day
+      Breakfast
+      Lunch
+      Dinner
+      Snacks
 
   Login?
 
@@ -38,24 +51,150 @@ Output
       search at the bottom
       list of popular recipes
       list of recently uploaded recipes
+      bar on top with links to other Pages
+        Calender
+        New Recipe page
+        Favorite Recipe Page
     Search Page
     Recipe Page
     Enter new Recipe Page
+    Favorite recipe Page
+    Weekly Calender Page
+    Daily Calender Page
 
 ============================================================
 Examples
-Recipe:
+Recipe: Dumplings
   ingredient list
+    1 cup all-purpose flour
+    2 teaspoons baking powder
+    1 teaspoon white sugar
+    ½ teaspoon salt
+    1 tablespoon margarine
+    ½ cup milk
   ingredients have:
     -amount
     -units
     -optional description
   author
+    Carol
   type [Breakfast, lunch, fancy dinner]
+    Dinner
+  cuisine [Italian, Indian]
+    Comfort Food
+  difficulty
+    Easy
+  Nutrition Facts
+    Per Serving: 105 calories; protein 2.8g; carbohydrates 18g; fat 2.4g; cholesterol 1.6mg; sodium 385.8mg.
+  length of time to cook
+    20 min
+  date uploaded default
+  url to recipe optional
+    https://www.allrecipes.com/recipe/6900/dumplings/
+  Serving Size
+  Number of Servings
+    6 servings
+
+Recipe:
+  ingredient list
+    4 cups old-fashioned rolled oats (use certified gluten-free oats for gluten-free granola)
+    1 1/2 cup raw nuts and/or seeds (I used 1 cup pecans and 1/2 cup pepitas)
+    1 teaspoon fine-grain sea salt (if you’re using standard table salt, scale back to 3/4 teaspoon)
+    1/2 teaspoon ground cinnamon
+    1/2 cup melted coconut oil or olive oil
+    1/2 cup maple syrup or honey
+    1 teaspoon vanilla extract
+    2/3 cup dried fruit, chopped if large (I used dried cranberries)
+    Totally optional additional mix-ins: 1/2 cup chocolate chips or coconut flakes*
+  steps
+    Step 1
+    Stir together flour, baking powder, sugar, and salt in a bowl. Cut in butter until mixture is crumbly. Stir in milk and mix until a batter forms that is thick enough to be scooped with a spoon. Allow batter to rest for 3 to 5 minutes..
+
+    Step 2
+    Drop batter by spoonfuls into boiling stew or soup. Cover and simmer without lifting the lid for 15 minutes. Serve.
+  author
+    Cookie and Kate
+  type [Breakfast, lunch, fancy dinner]
+    Breakfast
   cuisine [Italian, Indian]
   difficulty
-  calories
+    Easy
+  Nutrition Facts
+    Per Serving: 234 calories; protein 3.5g; carbohydrates 27.6g; fat 11.7g; cholesterol 0mg; sodium 134.4mg.
   length of time to cook
   date uploaded default
   url to recipe optional
-    https://sallysbakingaddiction.com/the-great-pumpkin-pie-recipe/
+    https://cookieandkate.com/healthy-granola-recipe/#tasty-recipes-23967-jump-target
+  Serving Size
+    0.5 cups
+  Number of Servings
+    16
+
+====================================================================================
+
+Data Structure
+
+Class for DataBase Persistance
+  Initialize - Connection
+  Add Recipe
+  Delete Recipe?
+  Find Recipe
+    For Search Function
+      pull up link and recipe snippet with descriptions
+    For Calender
+  Add Recipe to Calender
+  Remove Recipe from calender
+  Clear all recipes from Calender
+  Add ingredient
+  Delete ingredient
+  Add Step
+  Delete Step
+
+ERB filter
+Routes
+  Home
+  Search Page
+  Recipe Page
+  Enter new Recipe Page
+  Favorite recipe Page
+  Weekly Calender Page
+  Daily Calender Page
+
+Helper methods
+  ?
+
+Before
+  initialize storage object opening connection
+After
+  close Connection
+
+
+Database
+  recipes
+    Title               varchr(50)
+    Author              varchr(30)
+    Servings            integer
+    Time                integer (minutes)
+    URL                 text
+    Favorite            Boolean
+    Labels              text
+    Difficulty          [Hard, Medium, Easy]
+    URL to recipe       text
+    Time to make        integer (minutes)
+  ingredients_list
+    name                varchar(20)
+    units               varchar(10)
+    description         text
+    recipe_id           integer
+  planned_meals
+    recipe_id           integer
+    day of week         [Sunday, Monday...]
+    meal of day         [Breakfast, Lunch...]
+  directions
+    recipe_id           integer
+    step_number         integer
+    step_text           text
+
+M:1  ingredients to recipe
+M:1  directions to recipe
+M:1  recipes to a planned meal    Not sure I'm classifying this right. FIX ME.
