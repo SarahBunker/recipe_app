@@ -156,6 +156,10 @@ Class for DataBase Persistance
   Add Step
   Delete Step
 
+Class for recipe
+  Initialize - accept tuple
+  to_s (has link to recipe page, short description)
+
 ERB filter
 Routes
   Home
@@ -228,3 +232,8 @@ Simple program
       F: ordered list
   Delete a recipe
     delete from database
+    
+Search Route
+  check if term is one of the known catagories
+  otherwise do a query for that term in the steps
+  return a list of recipes that match
