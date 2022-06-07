@@ -76,6 +76,12 @@ Recipe: Dumplings
     -amount
     -units
     -optional description
+  steps
+    Step 1
+    Stir together flour, baking powder, sugar, and salt in a bowl. Cut in butter until mixture is crumbly. Stir in milk and mix until a batter forms that is thick enough to be scooped with a spoon. Allow batter to rest for 3 to 5 minutes..
+
+    Step 2
+    Drop batter by spoonfuls into boiling stew or soup. Cover and simmer without lifting the lid for 15 minutes. Serve.
   author
     Carol
   type [Breakfast, lunch, fancy dinner]
@@ -95,7 +101,7 @@ Recipe: Dumplings
   Number of Servings
     6 servings
 
-Recipe:
+Recipe: Granola
   ingredient list
     4 cups old-fashioned rolled oats (use certified gluten-free oats for gluten-free granola)
     1 1/2 cup raw nuts and/or seeds (I used 1 cup pecans and 1/2 cup pepitas)
