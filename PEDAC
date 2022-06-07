@@ -232,7 +232,7 @@ Simple program
       F: ordered list
   Delete a recipe
     delete from database
-    
+
 Search Route
   check if term is one of the known catagories
   otherwise do a query for that term in the steps

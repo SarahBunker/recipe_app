@@ -24,7 +24,29 @@ before do
   @storage = DatabasePersistence.new(logger)
 end
 
-# Routes
+get "/home" do
+  redirect "/"
+end
+
+get "/" do
+  erb :home, layout: :layout
+end
+
+get "/new_recipe" do
+  erb :add_recipe, layout: :layout
+end
+
+get "/granola" do
+  erb :recipe, layout: :layout
+end
+
+get "/hello_world" do
+  "Hello Emily"
+end
+
+# not_found do
+#   'This is nowhere to be found.'
+# end
 
 after do
   @storage.disconnect
