@@ -181,17 +181,15 @@ After
 
 Database
   recipes
-    Title               varchr(50)
+    name                varchr(50)
     Author              varchr(30)
     Servings            integer
-    Time                integer (minutes)
+    cook_time           integer (minutes)
     URL                 text
-    Favorite            Boolean
     Labels              text
     Difficulty          [Hard, Medium, Easy]
     URL to recipe       text
-    Time to make        integer (minutes)
-  ingredients_list
+  ingredients
     name                varchar(20)
     units               varchar(10)
     description         text
@@ -208,6 +206,8 @@ Database
 M:1  ingredients to recipe
 M:1  directions to recipe
 M:1  recipes to a planned meal    Not sure I'm classifying this right. FIX ME.
+
+I think I need to add another table for the user to store their favorites.
 
 ================================================================================
 Algorithm
