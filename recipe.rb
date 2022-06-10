@@ -37,7 +37,7 @@ get "/add_recipe" do
 end
 
 post "/add_recipe" do
-  @storage.add_list(params)
+  @storage.add_recipe(params)
   redirect "/"
 end
 
