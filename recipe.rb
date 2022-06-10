@@ -32,16 +32,32 @@ get "/" do
   erb :home, layout: :layout
 end
 
-get "/new_recipe" do
+get "/add_recipe" do
   erb :add_recipe, layout: :layout
+end
+
+post "/add_recipe" do
+  @storage.add_list(params)
+  redirect "/"
+end
+
+# Create a new list
+post "/lists" do
+  list_name = params[:list_name].strip
+
+  error = error_for_list_name(list_name)
+  if error
+    session[:error] = error
+    erb :new_list, layout: :layout
+  else
+    @storage.create_new_list(list_name)
+    session[:success] = "The list has been created."
+    redirect "/lists"
+  end
 end
 
 get "/granola" do
   erb :recipe, layout: :layout
-end
-
-get "/hello_world" do
-  "Hello Emily"
 end
 
 # not_found do

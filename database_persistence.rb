@@ -10,6 +10,10 @@ class DatabasePersistence
     @logger = logger
   end
 
+  def add_list(params)
+    
+  end
+
   def query(statement, *params)
     @logger.info "#{statement}: #{params}"
     @db.exec_params(statement, params)

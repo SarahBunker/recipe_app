@@ -1,8 +1,8 @@
 <h3>Add a new recipe</h3>
 <form action="#" method="post">
   <fieldset>
-    <label for="title">Title</label>
-    <input type="text" name="title"  id="title"/>
+    <label for="name">Name of Recipe</label>
+    <input type="text" name="name"  id="name"/>
     <label for="author">Author</label>
     <input type="text" name="author" id="author"/>
   </fieldset>
@@ -18,18 +18,18 @@
     </label>
     <label for="servings">Servings</label>
     <input type="number" name="servings" id="servings" min="0"/>
-    <label for="time">Total Time to Finish</label>
-    <input type="number" name="time" id="time" min="0"/>
+    <label for="time">Total Time to Finish<input type="number" name="time" id="time" min="0"/>min</label>
+
   </fieldset>
   <fieldset>
-    <label for="ingredient_list">Ingredients</label>
-    <textarea name="ingredient_list" id="ingredient_list" rows="20" cols="60">Ingredient List</textarea>
-    <label for="steps">Steps</label>
-    <textarea name="steps" id="steps" rows="20" cols="60">List of Directions</textarea>
+    <label for="ingredient_list"></label>
+    <textarea name="ingredient_list" id="ingredient_list" rows="20" cols="60" placeholder="Ingredient List"></textarea>
+    <label for="steps"></label>
+    <textarea name="steps" id="steps" rows="20" cols="60" placeholder="List of Directions"></textarea>
   </fieldset>
   <fieldset>
-    <label for="nutrition">Nutrition Facts</label>
-    <input type="text" name="nutrition" id="nutrition"/>
+    <!-- <label for="nutrition">Nutrition Facts</label>
+    <input type="text" name="nutrition" id="nutrition"/> -->
     <label>
       Difficulty
       <select name="difficulty">
@@ -40,8 +40,10 @@
       </select>
     </label>
     <input type="hidden" id="timestamp" name="timestamp" value="1286705410">
-    <label for="url_link">Link to recipe on other website</label>
+    <label for="url_link">Link to original recipe</label>
     <input type="text" name="url_link" id="url_link"/>
+    <label for="labels">Labels</label>
+    <input type="text" name="labels" id="labels"/>
   </fieldset>
   <button type="submit">Add recipe</button>
   <button type="reset">Reset form</button>
