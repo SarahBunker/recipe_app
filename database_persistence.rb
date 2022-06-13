@@ -18,6 +18,19 @@ class DatabasePersistence
     query(sql,params[:name], params[:author], params[:servings], params[:cook_time], params[:url_link], params[:difficulty], params[:meal_type], params[:labels], params[:ingredient_list], params[:directions])
   end
 
+  def load_recipe(recipe_id)
+    sql = <<~SQL
+    SELECT * FROM recipes WHERE id = $1
+    SQL
+    result = query(sql, recipe_id)
+    tuple_to_recipe_hash(result.first)
+  end
+
+  def tuple_to_recipe_hash(tuple)
+    { id: tuple["id"].to_i,
+      name: tuple["name"]}
+  end
+
   def query(statement, *params)
     @logger.info "#{statement}: #{params}"
     @db.exec_params(statement, params)

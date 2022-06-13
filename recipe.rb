@@ -36,6 +36,10 @@ get "/add_recipe" do
   erb :add_recipe, layout: :layout
 end
 
+get "/hello" do
+  "Hello World"
+end
+
 post "/add_recipe" do
   @storage.add_recipe(params)
   redirect "/"
@@ -56,7 +60,14 @@ post "/lists" do
   end
 end
 
+get "/dumplings" do
+  @recipe = @storage.load_recipe(2)
+  erb :recipe, layout: :layout
+end
+
 get "/granola" do
+  @recipe = @storage.load_recipe(3)
+  p @recipe
   erb :recipe, layout: :layout
 end
 
