@@ -72,7 +72,8 @@ end
 
 get "/granola" do
   @recipe = @storage.load_recipe(3)
-  p @recipe
+  p "Recipe URL"
+  p @recipe[:url_link]
   erb :recipe, layout: :layout
 end
 

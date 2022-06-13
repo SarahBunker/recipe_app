@@ -2,7 +2,7 @@
 <p>Author: <%= @recipe[:author] %></p>
 <p>Number of Servings: <%= @recipe[:servings] %></p>
 <p>Total: <%= format_cook_time(@recipe[:cook_time]) %></p>
-<p>Difficulty: Easy</p>
+<p>Difficulty: <%= @recipe[:difficulty].capitalize %></p>
 
 <div class = "ingredients">
   <h3>Ingredients</h3>
@@ -22,13 +22,9 @@
     <li>Drop batter by spoonfuls into boiling stew or soup. Cover and simmer without lifting the lid for 15 minutes. Serve.</li>
   </ul>
 </div>
-<div class = "nutrition">
-  <h4>Nutrition Facts</h4>
-  <p><strong>Per Serving:</strong> 105 calories; protein 2.8g; carbohydrates 18g; fat 2.4g; cholesterol 1.6mg; sodium 385.8mg.</p>
-</div>
 <div class = "endlinks">
   <ul>
-    <li><a href="https://www.allrecipes.com/recipe/6900/dumplings/">Link to original recipe</a></li>
+    <li><a href="<%= @recipe[:url_link] %>">Link to original recipe</a></li>
   </ul>
   <h3>Labels</h3>
   <ul>

@@ -32,7 +32,7 @@ class DatabasePersistence
       author: tuple["author"],
       servings: tuple["servings"].to_i,
       cook_time: tuple["cook_time"].to_i,
-      url_link: tuple["url_link"],
+      url_link: tuple["url"],
       difficulty: tuple["difficulty"],
       meal_type: tuple["meal_type"],
       lables: tuple["labels"],
