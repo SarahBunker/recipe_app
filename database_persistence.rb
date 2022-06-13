@@ -28,7 +28,17 @@ class DatabasePersistence
 
   def tuple_to_recipe_hash(tuple)
     { id: tuple["id"].to_i,
-      name: tuple["name"]}
+      name: tuple["name"],
+      author: tuple["author"],
+      servings: tuple["servings"].to_i,
+      cook_time: tuple["cook_time"].to_i,
+      url_link: tuple["url_link"],
+      difficulty: tuple["difficulty"],
+      meal_type: tuple["meal_type"],
+      lables: tuple["labels"],
+      ingredient_list: tuple["ingredient_list"],
+      directions: tuple["directions"]
+    }
   end
 
   def query(statement, *params)

@@ -16,6 +16,11 @@ configure (:development) do
 end
 
 helpers do
+  def format_cook_time(time)
+    hrs = time / 60
+    mins = time % 60
+    hrs > 0 ? "#{hrs} hrs #{mins} mins" : "#{mins} mins"
+  end
 end
 
 # Other methods
