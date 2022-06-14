@@ -35,8 +35,8 @@ class DatabasePersistence
       url_link: tuple["url"],
       difficulty: tuple["difficulty"],
       meal_type: tuple["meal_type"],
-      lables: tuple["labels"],
-      ingredients: (tuple["ingredients"]),
+      labels: tuple["labels"],
+      ingredients: tuple["ingredients"],
       directions: tuple["directions"]
     }
   end
