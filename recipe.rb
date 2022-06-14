@@ -21,6 +21,15 @@ helpers do
     mins = time % 60
     hrs > 0 ? "#{hrs} hrs #{mins} mins" : "#{mins} mins"
   end
+
+
+
+  def display_list(list)
+    result = list.split("\n").map do |item|
+      "<li>#{item}</li>"
+    end.join
+    "<ul> #{result} </ul>"
+  end
 end
 
 # Other methods
@@ -65,15 +74,9 @@ post "/lists" do
   end
 end
 
-get "/dumplings" do
-  @recipe = @storage.load_recipe(2)
-  erb :recipe, layout: :layout
-end
-
-get "/granola" do
-  @recipe = @storage.load_recipe(3)
-  p "Recipe URL"
-  p @recipe[:url_link]
+get "/recipe/:recipe_id" do
+  @recipe = @storage.load_recipe(params[:recipe_id])
+  # @recipe[:ingredient_list].each {|item| p item}
   erb :recipe, layout: :layout
 end
 

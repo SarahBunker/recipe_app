@@ -36,9 +36,13 @@ class DatabasePersistence
       difficulty: tuple["difficulty"],
       meal_type: tuple["meal_type"],
       lables: tuple["labels"],
-      ingredient_list: tuple["ingredient_list"],
+      ingredient_list: (tuple["ingredients"]),
       directions: tuple["directions"]
     }
+  end
+
+  def split_newlines(collection)
+    collection.split("/n")
   end
 
   def query(statement, *params)
