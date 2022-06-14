@@ -22,8 +22,6 @@ helpers do
     hrs > 0 ? "#{hrs} hrs #{mins} mins" : "#{mins} mins"
   end
 
-
-
   def display_list(list)
     result = list.split("\n").map do |item|
       "<li>#{item}</li>"
@@ -64,12 +62,9 @@ get "/recipe/:recipe_id" do
   erb :recipe, layout: :layout
 end
 
-get "/search/by_id/:recipe_id" do
-  redirect "/recipe/:recipe_id"
-end
-
-get "search/by_label/:label" do
-
+get "/search" do
+  @results = [{name: "Dumpling"}, {name: "Granola"}] #FIXME
+  erb :search, layout: :layout
 end
 
 # not_found do
