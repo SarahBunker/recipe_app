@@ -9,7 +9,7 @@ CREATE TABLE recipes (
   author text,
   servings int,
   cook_time int,
-  url text,
+  url_link text,
   difficulty varchar(6) CHECK (difficulty IN ('hard', 'medium', 'easy')),
   meal_type varchar(10) CHECK (meal_type IN ('breakfast', 'lunch', 'dinner')),
   labels text,
