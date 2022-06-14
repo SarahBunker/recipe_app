@@ -59,24 +59,8 @@ post "/add_recipe" do
   redirect "/"
 end
 
-# Create a new list
-post "/lists" do
-  list_name = params[:list_name].strip
-
-  error = error_for_list_name(list_name)
-  if error
-    session[:error] = error
-    erb :new_list, layout: :layout
-  else
-    @storage.create_new_list(list_name)
-    session[:success] = "The list has been created."
-    redirect "/lists"
-  end
-end
-
 get "/recipe/:recipe_id" do
   @recipe = @storage.load_recipe(params[:recipe_id])
-  # @recipe[:ingredient_list].each {|item| p item}
   erb :recipe, layout: :layout
 end
 
