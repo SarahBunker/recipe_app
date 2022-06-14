@@ -64,6 +64,14 @@ get "/recipe/:recipe_id" do
   erb :recipe, layout: :layout
 end
 
+get "/search/by_id/:recipe_id" do
+  redirect "/recipe/:recipe_id"
+end
+
+get "search/by_label/:label" do
+
+end
+
 # not_found do
 #   'This is nowhere to be found.'
 # end
