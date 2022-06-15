@@ -63,7 +63,11 @@ get "/recipe/:recipe_id" do
 end
 
 get "/search" do
-  @results = [{name: "Dumpling"}, {name: "Granola"}] #FIXME
+  query = params[:query]
+  query = 'fun' if params[:query] == nil
+  p "In the route I am passing:"
+  p query
+  @results = @storage.search_recipes(query)
   erb :search, layout: :layout
 end
 

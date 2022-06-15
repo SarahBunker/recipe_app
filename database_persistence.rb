@@ -26,6 +26,20 @@ class DatabasePersistence
     tuple_to_recipe_hash(result.first)
   end
 
+  def search_recipes(query)
+    p "Query parameter is:" #FIX ME
+    p query
+    p query.class
+    sql = <<~SQL
+    SELECT * FROM recipes
+    WHERE labels ~ 'cast($1 as text'
+    SQL
+    results = query(sql, query)
+    results.map do |result|
+      tuple_to_recipe_hash(result)
+    end
+  end
+
   def tuple_to_recipe_hash(tuple)
     { id: tuple["id"].to_i,
       name: tuple["name"],
