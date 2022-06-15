@@ -72,9 +72,19 @@ get "/search" do
   erb :search, layout: :layout
 end
 
-get "/search/breakfast" do
-  @title = "Breakfast Recipes"
-  @results = @storage.search_mealtype("breakfast")
+get "/search/:meal_type" do
+  @meal_type = params[:meal_type].downcase
+  case @meal_type
+  when "breakfast"
+    @results = @storage.search_breakfast
+  when "lunch"
+    @results = @storage.search_lunch
+  when "dinner"
+    @results = @storage.search_dinner
+  else
+    redirect "/"
+  end
+  @title = "#{@meal_type.capitalize} Recipes"
   erb :meal_type, layout: :layout
 end
 

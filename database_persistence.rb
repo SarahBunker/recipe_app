@@ -40,13 +40,32 @@ class DatabasePersistence
     end
   end
 
-  def search_mealtype(query)
-    p "Query parameter is:" #FIX ME
-    p query
-    p query.class
+  def search_breakfast
     sql = <<~SQL
     SELECT * FROM recipes
     WHERE meal_type ILIKE 'breakfast'
+    SQL
+    results = query(sql)
+    results.map do |result|
+      tuple_to_recipe_hash(result)
+    end
+  end
+
+  def search_lunch
+    sql = <<~SQL
+    SELECT * FROM recipes
+    WHERE meal_type ILIKE 'lunch'
+    SQL
+    results = query(sql)
+    results.map do |result|
+      tuple_to_recipe_hash(result)
+    end
+  end
+
+  def search_dinner
+    sql = <<~SQL
+    SELECT * FROM recipes
+    WHERE meal_type ILIKE 'dinner'
     SQL
     results = query(sql)
     results.map do |result|
