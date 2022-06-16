@@ -5,15 +5,15 @@
   <button type="submit">Search</button>
 </form>
 
-<% if @results.empty? %>
+<% if @recipes.empty? %>
   <p>Sorry, no matches were found.</p>
 <% else %>
-  <h2>Results for '<%= params[:query]%>'</h2>
+  <h2>recipes for '<%= params[:query]%>'</h2>
 
   <ul>
-    <% @results.each do |result| %>
+    <% @recipes.each do |recipe| %>
       <li>
-        <h4><%= result[:name] %></h4>
+        <h4><%= recipe[:name] %></h4>
         <!-- FIXME -->
       </li>
     <% end %>

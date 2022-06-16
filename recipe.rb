@@ -28,6 +28,13 @@ helpers do
     end.join
     "<ul> #{result} </ul>"
   end
+
+  def display_n_recipe_links(recipes)
+    recipe = recipes.map do |recipe|
+      "<li><h4><a href=`/recipe/#{recipe[:id]}`><%= result[:name] %></a></h4></li>"
+    end.join
+    "<ul> #{recipe} </ul>"
+  end
 end
 
 # Other methods
@@ -65,26 +72,15 @@ end
 get "/search" do
   query = params[:query]
   query = 'fun' if params[:query] == nil
-  p "In the route I am passing:"
-  p query
-  @results = @storage.search_recipes(query)
-  # @results = [{name: "Granola"}, {name: "Another food"}, {name: "Dumplings"}]
+  @recipes = @storage.search_recipes(query)
+  # @recipes = [{name: "Granola"}, {name: "Another food"}, {name: "Dumplings"}]
   erb :search, layout: :layout
 end
 
 get "/search/:meal_type" do
-  @meal_type = params[:meal_type].downcase
-  case @meal_type
-  when "breakfast"
-    @results = @storage.search_breakfast
-  when "lunch"
-    @results = @storage.search_lunch
-  when "dinner"
-    @results = @storage.search_dinner
-  else
-    redirect "/"
-  end
-  @title = "#{@meal_type.capitalize} Recipes"
+  @type = params[:meal_type].downcase
+  @recipes = @storage.search_mealtype(@type)
+  @title = "#{@type.capitalize} Recipes"
   erb :meal_type, layout: :layout
 end
 

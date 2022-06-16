@@ -27,12 +27,9 @@ class DatabasePersistence
   end
 
   def search_recipes(query)
-    p "Query parameter is:" #FIX ME
-    p query
-    p query.class
     sql = <<~SQL
     SELECT * FROM recipes
-    WHERE labels ~ $1::text
+    WHERE labels ~ $1
     SQL
     results = query(sql, query)
     results.map do |result|
@@ -40,34 +37,12 @@ class DatabasePersistence
     end
   end
 
-  def search_breakfast
+  def search_mealtype(type)
     sql = <<~SQL
     SELECT * FROM recipes
-    WHERE meal_type ~ 'breakfast'
+    WHERE meal_type ~ $1
     SQL
-    results = query(sql)
-    results.map do |result|
-      tuple_to_recipe_hash(result)
-    end
-  end
-
-  def search_lunch
-    sql = <<~SQL
-    SELECT * FROM recipes
-    WHERE meal_type ILIKE 'lunch'
-    SQL
-    results = query(sql)
-    results.map do |result|
-      tuple_to_recipe_hash(result)
-    end
-  end
-
-  def search_dinner
-    sql = <<~SQL
-    SELECT * FROM recipes
-    WHERE meal_type ILIKE 'dinner'
-    SQL
-    results = query(sql)
+    results = query(sql, type)
     results.map do |result|
       tuple_to_recipe_hash(result)
     end
