@@ -31,8 +31,8 @@ class DatabasePersistence
     SELECT * FROM recipes
     WHERE labels ~ $1
     SQL
-    results = query(sql, query)
-    results.map do |result|
+    recipes = query(sql, query)
+    recipes.map do |result|
       tuple_to_recipe_hash(result)
     end
   end
@@ -42,8 +42,8 @@ class DatabasePersistence
     SELECT * FROM recipes
     WHERE meal_type ~ $1
     SQL
-    results = query(sql, type)
-    results.map do |result|
+    recipes = query(sql, type)
+    recipes.map do |result|
       tuple_to_recipe_hash(result)
     end
   end

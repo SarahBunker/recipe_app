@@ -31,13 +31,11 @@ helpers do
 
   def display_n_recipe_links(recipes)
     recipe = recipes.map do |recipe|
-      "<li><h4><a href=`/recipe/#{recipe[:id]}`><%= result[:name] %></a></h4></li>"
+      "<li><h4><a href='/recipe/#{recipe[:id]}'>#{recipe[:name]}</a></h4></li>"
     end.join
     "<ul> #{recipe} </ul>"
   end
 end
-
-# Other methods
 
 before do
   @storage = DatabasePersistence.new(logger)
@@ -73,7 +71,6 @@ get "/search" do
   query = params[:query]
   query = 'fun' if params[:query] == nil
   @recipes = @storage.search_recipes(query)
-  # @recipes = [{name: "Granola"}, {name: "Another food"}, {name: "Dumplings"}]
   erb :search, layout: :layout
 end
 
