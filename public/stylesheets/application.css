@@ -1,0 +1,27 @@
+body {
+  font-family: 'Vollkorn', serif;
+}
+
+body {
+  color: #777;
+  background-color: blue;
+}
+
+aside {
+  align-items: center;
+  padding: 20px;
+  background-color: paleturquoise;
+  outline: 2px solid black;
+}
+
+a {
+  color: pink;
+}
+
+h3 {
+  color: green;
+}
+
+.nav_bar {
+  background-color: indigo;
+}

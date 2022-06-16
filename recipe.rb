@@ -67,8 +67,8 @@ get "/search" do
   query = 'fun' if params[:query] == nil
   p "In the route I am passing:"
   p query
-  # @results = @storage.search_recipes(query)
-  @results = [{name: "Granola"}, {name: "Another food"}, {name: "Dumplings"}]
+  @results = @storage.search_recipes(query)
+  # @results = [{name: "Granola"}, {name: "Another food"}, {name: "Dumplings"}]
   erb :search, layout: :layout
 end
 

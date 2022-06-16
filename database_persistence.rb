@@ -32,7 +32,7 @@ class DatabasePersistence
     p query.class
     sql = <<~SQL
     SELECT * FROM recipes
-    WHERE labels ~ 'cast($1 as text'
+    WHERE labels ~ $1::text
     SQL
     results = query(sql, query)
     results.map do |result|
@@ -43,7 +43,7 @@ class DatabasePersistence
   def search_breakfast
     sql = <<~SQL
     SELECT * FROM recipes
-    WHERE meal_type ILIKE 'breakfast'
+    WHERE meal_type ~ 'breakfast'
     SQL
     results = query(sql)
     results.map do |result|
