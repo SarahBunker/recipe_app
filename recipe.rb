@@ -30,10 +30,17 @@ helpers do
   end
 
   def display_n_recipe_links(recipes)
-    recipe = recipes.map do |recipe|
+    result = recipes.map do |recipe|
       "<li><h4><a href='/recipe/#{recipe[:id]}'>#{recipe[:name]}</a></h4></li>"
     end.join
-    "<ul> #{recipe} </ul>"
+    "<ul> #{result} </ul>"
+  end
+
+  def display_label_links(recipe)
+    result = recipe[:labels].split.map do |label|
+      "<li><h4><a href='/recipe/#{label}'>#{label.capitalize}</a></h4></li>"
+    end.join
+    "<ul> #{result} </ul>"
   end
 end
 
@@ -80,6 +87,13 @@ get "/search/:meal_type" do
   @type = params[:meal_type].downcase
   @recipes = @storage.search_mealtype(@type)
   @title = "#{@type.capitalize} Recipes"
+  erb :meal_type, layout: :layout
+end
+
+get "/find/:label" do
+  @label = params[:label]
+  @recipes = @storage.search_recipes(@label)
+  @title = "Recipes with '#{@label.capitalize}'"
   erb :meal_type, layout: :layout
 end
 

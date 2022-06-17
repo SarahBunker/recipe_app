@@ -18,8 +18,11 @@
   </ul>
   <h3>Labels</h3>
   <ul>
-    <li><a href="#">Pasta</a></li>
-    <li><a href="#">Dinner</a></li>
-    <li><a href="#">Easy</a></li>
+    <li><a href="/find/pasta">Pasta</a></li>
+  </ul>
+  <ul>
+  <% @recipe[:labels].split(', ').each do |label| %>
+    <li><a href="/find/<%=label%>"><%=label.capitalize%></a></li>
+  <% end %>
   </ul>
 </div>
