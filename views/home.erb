@@ -1,15 +1,19 @@
 <h2>Home Page</h2>
-<aside>
-  <p><a href="/search/breakfast">Breakfast</a></p>
-  <p><a href="/search/lunch">Lunch</a></p>
-  <p><a href="/search/dinner">Dinner</a></p>
-  <p><a href="/allrecipes">All recipes</a><p>
-</aside>
-<div class = "popular">
-  <h3>Most Popular</h3>
-  <%==display_n_recipe_links(@recipes_popular)%>
+<div class="sidebar">
+  <aside>
+    <p><a href="/search/breakfast">Breakfast</a></p>
+    <p><a href="/search/lunch">Lunch</a></p>
+    <p><a href="/search/dinner">Dinner</a></p>
+    <p><a href="/allrecipes">All recipes</a><p>
+  </aside>
 </div>
-<div class = "recent">
-  <h3>Recently Submitted</h3>
-  <%==display_n_recipe_links(@recipes_recent)%>
+<div class = "content">
+  <div class = "popular">
+    <h3>Most Popular</h3>
+    <%==display_n_recipe_links(@recipes_popular)%>
+  </div>
+  <div class = "recent">
+    <h3>Recently Submitted</h3>
+    <%==display_n_recipe_links(@recipes_recent)%>
+  </div>
 </div>

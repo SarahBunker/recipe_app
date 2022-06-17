@@ -2,26 +2,18 @@ body {
   font-family: 'Vollkorn', serif;
 }
 
-body {
-  color: #777;
-  background-color: blue;
-}
-
 aside {
-  align-items: center;
-  padding: 20px;
-  background-color: paleturquoise;
-  outline: 2px solid black;
+  outline: solid black 2px;
 }
 
-a {
-  color: pink;
+.sidebar {
+  float: left;
+  width: 20%;
+  outline: solid black 2px;
 }
 
-h3 {
-  color: green;
-}
-
-.nav_bar {
-  background-color: indigo;
+.content {
+  float: left;
+  width: 70%;
+  outline: solid black 2px;
 }

@@ -1,0 +1,17 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
+a {
+  color: black;
+}
+
+aside {
+  outline: black 2px solid;
+  padding: 5px;
+}
