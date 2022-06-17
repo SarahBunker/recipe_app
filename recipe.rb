@@ -46,6 +46,8 @@ get "/home" do
 end
 
 get "/" do
+  @recipes_popular = @storage.search_popular
+  @recipes_recent = @storage.search_recent
   erb :home, layout: :layout
 end
 

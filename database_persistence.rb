@@ -43,7 +43,31 @@ class DatabasePersistence
     SQL
     recipes = query(sql, term)
     recipes.map do |recipe|
-      tuple_to_recipe_hash(rrecipe)
+      tuple_to_recipe_hash(recipe)
+    end
+  end
+
+  def search_recent
+    sql = <<~SQL
+    SELECT * FROM recipes
+    ORDER BY create_at DESC
+    LIMIT 3
+    SQL
+    recipes = query(sql)
+    recipes.map do |recipe|
+      tuple_to_recipe_hash(recipe)
+    end
+  end
+
+  def search_popular
+    sql = <<~SQL
+    SELECT * FROM recipes
+    WHERE favorite = true
+    LIMIT 3
+    SQL
+    recipes = query(sql)
+    recipes.map do |recipe|
+      tuple_to_recipe_hash(recipe)
     end
   end
 
