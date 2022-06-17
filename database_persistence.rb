@@ -26,14 +26,24 @@ class DatabasePersistence
     tuple_to_recipe_hash(result.first)
   end
 
-  def search_recipes(query)
+  def allrecipes
+    sql = <<~SQL
+    SELECT * FROM recipes
+    SQL
+    recipes = query(sql)
+    recipes.map do |recipe|
+      tuple_to_recipe_hash(recipe)
+    end
+  end
+
+  def search_recipes(term)
     sql = <<~SQL
     SELECT * FROM recipes
     WHERE labels ~ $1
     SQL
-    recipes = query(sql, query)
-    recipes.map do |result|
-      tuple_to_recipe_hash(result)
+    recipes = query(sql, term)
+    recipes.map do |recipe|
+      tuple_to_recipe_hash(rrecipe)
     end
   end
 
@@ -43,8 +53,8 @@ class DatabasePersistence
     WHERE meal_type ~ $1
     SQL
     recipes = query(sql, type)
-    recipes.map do |result|
-      tuple_to_recipe_hash(result)
+    recipes.map do |recipe|
+      tuple_to_recipe_hash(recipe)
     end
   end
 

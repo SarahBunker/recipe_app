@@ -1,5 +1,6 @@
 -- psql -d recipes < schema.sql
 -- \i ~/Documents/LS/recipe_app/schema.sql
+-- pg_dump recipes > backup.sql
 
 DROP TABLE IF EXISTS recipes, ingredients, ingredient_recipe, directions, planned_meals;
 

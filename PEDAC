@@ -237,3 +237,8 @@ Search Route
   check if term is one of the known catagories
   otherwise do a query for that term in the steps
   return a list of recipes that match
+
+Search N Recipes
+  - used on home page for a list of popular recipes
+  - should be a parameter that goes to database_persistence class
+  - maybe default to not limiting and then can pass a limit as needed

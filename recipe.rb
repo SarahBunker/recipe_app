@@ -81,6 +81,12 @@ get "/search/:meal_type" do
   erb :meal_type, layout: :layout
 end
 
+get "/allrecipes" do
+  @recipes = @storage.allrecipes
+  @title = "All Recipes"
+  erb :meal_type, layout: :layout
+end
+
 # not_found do
 #   'This is nowhere to be found.'
 # end
