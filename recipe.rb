@@ -68,9 +68,9 @@ get "/recipe/:recipe_id" do
 end
 
 get "/search" do
-  query = params[:query]
-  query = 'fun' if params[:query] == nil
-  @recipes = @storage.search_recipes(query)
+  @query = params[:query]
+  @query = 'fun' if params[:query] == nil
+  @recipes = @storage.search_recipes(@query)
   erb :search, layout: :layout
 end
 
