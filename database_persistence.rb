@@ -29,6 +29,7 @@ class DatabasePersistence
   def allrecipes
     sql = <<~SQL
     SELECT * FROM recipes
+    ORDER BY name
     SQL
     recipes = query(sql)
     recipes.map do |recipe|
