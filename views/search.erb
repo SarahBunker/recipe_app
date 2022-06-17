@@ -10,12 +10,6 @@
 <% else %>
   <h2>recipes for '<%= params[:query]%>'</h2>
 
-  <ul>
-    <% @recipes.each do |recipe| %>
-      <li>
-        <h4><%= recipe[:name] %></h4>
-        <!-- FIXME -->
-      </li>
-    <% end %>
-  </ul>
+  <%==display_n_recipe_links(@recipes)%>
+
 <% end %>
