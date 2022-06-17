@@ -17,12 +17,5 @@
     <li><a href="<%= @recipe[:url_link] %>">Link to original recipe</a></li>
   </ul>
   <h3>Labels</h3>
-  <ul>
-    <li><a href="/find/pasta">Pasta</a></li>
-  </ul>
-  <ul>
-  <% @recipe[:labels].split(', ').each do |label| %>
-    <li><a href="/find/<%=label%>"><%=label.capitalize%></a></li>
-  <% end %>
-  </ul>
+  <%== display_label_links(@recipe) %>
 </div>

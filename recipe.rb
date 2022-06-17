@@ -38,7 +38,7 @@ helpers do
 
   def display_label_links(recipe)
     result = recipe[:labels].split.map do |label|
-      "<li><h4><a href='/recipe/#{label}'>#{label.capitalize}</a></h4></li>"
+      "<li><h4><a href='/find/#{label}'>#{label.capitalize}</a></h4></li>"
     end.join
     "<ul> #{result} </ul>"
   end
