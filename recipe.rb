@@ -87,20 +87,20 @@ get "/search/:meal_type" do
   @type = params[:meal_type].downcase
   @recipes = @storage.search_mealtype(@type)
   @title = "#{@type.capitalize} Recipes"
-  erb :meal_type, layout: :layout
+  erb :recipes_list, layout: :layout
 end
 
 get "/find/:label" do
   @label = params[:label]
   @recipes = @storage.search_recipes(@label)
   @title = "Recipes with '#{@label.capitalize}'"
-  erb :meal_type, layout: :layout
+  erb :recipes_list, layout: :layout
 end
 
 get "/allrecipes" do
   @recipes = @storage.allrecipes
   @title = "All Recipes"
-  erb :meal_type, layout: :layout
+  erb :recipes_list, layout: :layout
 end
 
 # not_found do
