@@ -12,14 +12,47 @@
 </section>
 
 <form action="/recipe/<%= @recipe[:id] %>" method="post">
-  <dl>
-    <dt>
-      <label for="list_name">Enter the new name for the list:</label>
-    </dt>
-    <dd>
-    <input name="list_name" placeholder="List Name" type="text" value="<%= params[:name] || @recipe[:name] %>">
-    </dd>
-  </dl>
+  <h3><label>Name:
+    <input type="text" name="name" placeholder="Recipe Name" value="<%= params[:name] || @recipe[:name] %>"/>
+  </label></h3>
+  <p><label>Author:
+    <input type="text" name="author" placeholder="Author Name" value="<%= params[:author] || @recipe[:author] %>"/>
+  </label></p>
+  <p><label>Number of Servings:
+    <input type="number" name="servings" value="<%= params[:servings] || @recipe[:servings] %>"/>
+  </label></p>
+  <p><label>Total:
+    <input type="number" name="cook_time" value="<%= params[:cook_time] || @recipe[:cook_time] %>"/> min
+  </label></p>
+  <label>
+    Difficulty
+    <select name="difficulty">
+      <option value="" disabled selected>Choose one</option>
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+  </label>
+
+  <div class = "subcontent">
+    <label for="ingredients"><h3>Ingredients</h3></label>
+    <textarea name="ingredients" id="ingredients" rows="20" cols="60" placeholder="Ingredient List"><%= @recipe[:ingredients] %></textarea>
+  </div>
+
+  <div class = "subcontent">
+    <label for="directions"><h3>Steps</h3></label>
+    <textarea name="directions" id="directions" rows="20" cols="60" placeholder="List of Directions"><%= @recipe[:directions] %></textarea>
+  </div>
+
+  <div class = "subcontent">
+    <p><label>Link to original recipe:
+      <input type="text" name="url_link" placeholder="URL" value="<%= params[:url_link] || @recipe[:url_link] %>"/>
+    </label></p>
+    <p><label><h3>Labels</h3>
+      <textarea cols="60" name="labels" placeholder="Add some labels to help others find this recipe"><%= @recipe[:labels] %></textarea>
+    </label></p>
+  </div>
+
   <fieldset class="actions">
     <input type="submit" value="Save">
     <a href="/recipe/<%= @recipe[:id] %>">Cancel</a>
