@@ -1,18 +1,26 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-    <title>Recipe App</title>
+    <title>Recipe Sharespace</title>
     <meta charset="UTF-8">
     <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans"> -->
-    <!-- <link rel="stylesheet" href="public/stylesheets/whitespace-reset.css"> -->
-    <link rel="stylesheet" href="stylesheets/application.css">
+    <link rel="stylesheet" href="/stylesheets/whitespace-reset.css">
+    <link rel="stylesheet" href="/stylesheets/application.css">
     <!--<script src="/javascripts/jquery-2.1.4.js"></script>-->
     <!--<script src="/javascripts/application.js"></script>-->
-    <!-- <link rel="stylesheet" href="./style.css"> -->
   </head>
   <body>
     <header>
-      <h1>Recipe App</h1>
+      <h1>Recipe Sharespace </h1>
+      <div class="nav_links">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/add_recipe">Add Recipe</a></li>
+          <li><a href="/calender">Calender</a></li>
+          <li><a href="/favorites">Favorites</a></li>
+          <li><a href="/search">Search</a></li>
+        </ul>
+      </div>
       <div class="actions">
         <%== yield_content :header_links %>
       </div>
@@ -31,15 +39,6 @@
     <% end %>
 
     <main>
-      <div class="nav_bar">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/add_recipe">Add Recipe</a></li>
-          <li><a href="/calender">Calender</a></li>
-          <li><a href="/favorites">Favorites</a></li>
-          <li><a href="/search">Search</a></li>
-        </ul>
-      </div>
       <%== yield %>
     </main>
   </body>
