@@ -31,11 +31,12 @@
         <option value="dinner">Dinner</option>
       </select>
     </label></p>
-
   </fieldset>
   <fieldset>
     <label for="ingredients"></label>
     <textarea name="ingredients" id="ingredients" rows="20" cols="60" placeholder="Ingredient List"></textarea>
+  </fieldset>
+  <fieldset>
     <label for="directions"></label>
     <textarea name="directions" id="directions" rows="20" cols="60" placeholder="List of Directions"></textarea>
   </fieldset>
@@ -43,10 +44,12 @@
     <!-- <label for="nutrition">Nutrition Facts</label>
     <input type="text" name="nutrition" id="nutrition"/> -->
     <input type="hidden" id="timestamp" name="timestamp" value="1286705410">
-    <label for="url_link">Link to original recipe</label>
-    <input type="text" name="url_link" id="url_link"/>
-    <label for="labels">Labels</label>
-    <input type="text" name="labels" id="labels"/>
+    <p><label>Link to original recipe:
+      <input type="text" name="url_link" placeholder="URL"/>
+    </label></p>
+    <p><label><h3>Labels</h3>
+      <textarea cols="60" name="labels" placeholder="Add some labels to help others find this recipe"></textarea>
+    </label></p>
   </fieldset>
   <button type="submit">Add recipe</button>
   <button type="reset">Reset form</button>
