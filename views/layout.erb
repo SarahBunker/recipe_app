@@ -39,7 +39,17 @@
     <% end %>
 
     <main>
+      <div class="sidebar">
+        <aside>
+          <p><a href="/search/breakfast">Breakfast</a></p>
+          <p><a href="/search/lunch">Lunch</a></p>
+          <p><a href="/search/dinner">Dinner</a></p>
+          <p><a href="/allrecipes">All recipes</a><p>
+        </aside>
+      </div>
+      <div class="content">
       <%== yield %>
+      </div>
     </main>
   </body>
 </html>

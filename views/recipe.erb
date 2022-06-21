@@ -1,23 +1,21 @@
-<div class = "content">
-  <h2><%= @recipe[:name] %></h2>
-  <p>Author: <%= @recipe[:author] %></p>
-  <p>Number of Servings: <%= @recipe[:servings] %></p>
-  <p>Total: <%= format_cook_time(@recipe[:cook_time]) %></p>
-  <p>Difficulty: <%= @recipe[:difficulty].capitalize %></p>
+<h2><%= @recipe[:name] %></h2>
+<p>Author: <%= @recipe[:author] %></p>
+<p>Number of Servings: <%= @recipe[:servings] %></p>
+<p>Total: <%= format_cook_time(@recipe[:cook_time]) %></p>
+<p>Difficulty: <%= @recipe[:difficulty].capitalize %></p>
 
-  <div class = "subcontent">
-    <h3>Ingredients</h3>
-    <%== display_list(@recipe[:ingredients]) %>
-  </div>
-  <div class = "subcontent">
-    <h3>Steps</h3>
-    <%== display_list(@recipe[:directions]) %>
-  </div>
-  <div class = "subcontent">
-    <ul>
-      <li><a href="<%= @recipe[:url_link] %>"><h3>Link to original recipe</h3></a></li>
-    </ul>
-    <h3>Labels</h3>
-    <%== display_label_links(@recipe) %>
-  </div>
+<div class = "subcontent">
+  <h3>Ingredients</h3>
+  <%== display_list(@recipe[:ingredients]) %>
+</div>
+<div class = "subcontent">
+  <h3>Steps</h3>
+  <%== display_list(@recipe[:directions]) %>
+</div>
+<div class = "subcontent">
+  <ul>
+    <li><a href="<%= @recipe[:url_link] %>"><h3>Link to original recipe</h3></a></li>
+  </ul>
+  <h3>Labels</h3>
+  <%== display_label_links(@recipe) %>
 </div>

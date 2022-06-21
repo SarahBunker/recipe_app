@@ -37,8 +37,15 @@ header {
   color: #0088a9;  /* blue */
 }
 
+h2 {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
 aside {
   outline: solid black 2px;
+  padding: 20px;
 }
 
 .sidebar {
