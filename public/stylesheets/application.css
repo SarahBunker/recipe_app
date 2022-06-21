@@ -64,6 +64,6 @@ aside {
   justify-content: center; */
 }
 
-.subcontent {
+.subcontent, fieldset {
   padding: 20px;
 }

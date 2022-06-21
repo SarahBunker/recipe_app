@@ -1,12 +1,27 @@
 <h2>Add a new recipe</h2>
 <form action="#" method="post">
   <fieldset>
-    <label for="name">Name of Recipe</label>
-    <input type="text" name="name"  id="name"/>
-    <label for="author">Author</label>
-    <input type="text" name="author" id="author"/>
+    <h3><label>Name:
+      <input type="text" name="name" placeholder="Recipe Name"/>
+    </label></h3>
+    <p><label>Author:
+      <input type="text" name="author" placeholder="Author Name"/>
+    </label></p>
+    <p><label>Number of Servings:
+      <input type="number" name="servings""/>
+    </label></p>
   </fieldset>
   <fieldset>
+    <label for="cook_time" placeholder="Total Time to Finish">Total: <input type="number" name="cook_time" id="cook_time" min="0"/>min</label>
+    <p><label>
+      Difficulty
+      <select name="difficulty">
+        <option value="" disabled selected>Choose one</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </label>
     <label>
       Type
       <select name="meal_type">
@@ -15,10 +30,7 @@
         <option value="lunch">Lunch</option>
         <option value="dinner">Dinner</option>
       </select>
-    </label>
-    <label for="servings">Servings</label>
-    <input type="number" name="servings" id="servings" min="0"/>
-    <label for="cook_time">Total Time to Finish<input type="number" name="cook_time" id="cook_time" min="0"/>min</label>
+    </label></p>
 
   </fieldset>
   <fieldset>
@@ -30,15 +42,6 @@
   <fieldset>
     <!-- <label for="nutrition">Nutrition Facts</label>
     <input type="text" name="nutrition" id="nutrition"/> -->
-    <label>
-      Difficulty
-      <select name="difficulty">
-        <option value="" disabled selected>Choose one</option>
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-      </select>
-    </label>
     <input type="hidden" id="timestamp" name="timestamp" value="1286705410">
     <label for="url_link">Link to original recipe</label>
     <input type="text" name="url_link" id="url_link"/>
