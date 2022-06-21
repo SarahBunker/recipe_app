@@ -103,6 +103,21 @@ get "/allrecipes" do
   erb :recipes_list, layout: :layout
 end
 
+get "/edit/:recipe_id" do
+  @recipe = @storage.load_recipe(params[:recipe_id])
+  erb :edit_recipe, layout: :layout
+end
+
+post "/recipe/destroy/:recipe_id" do
+  # FIX ME
+  "Hello World DESTROY"
+end
+
+post "/recipe/:recipe_id" do
+  # FIX ME
+  "Hello World SUBMIT CHANGES"
+end
+
 # not_found do
 #   'This is nowhere to be found.'
 # end

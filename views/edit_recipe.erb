@@ -1,0 +1,27 @@
+<section>
+  <header>
+    <h2>Editing '<%= @recipe[:name] %>'</h2>
+    <ul>
+      <li>
+        <form class="delete" action="/recipe/destroy/<%= @recipe[:id] %>" method="post">
+          <button type="submit" class="delete">Delete Recipe</button>
+        </form>
+      </li>
+    </ul>
+  </header>
+</section>
+
+<form action="/recipe/<%= @recipe[:id] %>" method="post">
+  <dl>
+    <dt>
+      <label for="list_name">Enter the new name for the list:</label>
+    </dt>
+    <dd>
+    <input name="list_name" placeholder="List Name" type="text" value="<%= params[:name] || @recipe[:name] %>">
+    </dd>
+  </dl>
+  <fieldset class="actions">
+    <input type="submit" value="Save">
+    <a href="/recipe/<%= @recipe[:id] %>">Cancel</a>
+  </fieldset>
+</form>

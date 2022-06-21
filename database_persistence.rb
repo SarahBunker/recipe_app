@@ -15,7 +15,7 @@ class DatabasePersistence
     INSERT INTO recipes
     VALUES (DEFAULT, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, DEFAULT);
     SQL
-    query(sql,params[:name], params[:author], params[:servings], params[:cook_time], params[:url_link], params[:difficulty], params[:meal_type], params[:labels], params[:ingredients], params[:directions])
+    query(sql, params[:name], params[:author], params[:servings], params[:cook_time], params[:url_link], params[:difficulty], params[:meal_type], params[:labels], params[:ingredients], params[:directions])
   end
 
   def load_recipe(recipe_id)
