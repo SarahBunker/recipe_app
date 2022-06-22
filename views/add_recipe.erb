@@ -2,7 +2,7 @@
 <form action="#" method="post">
   <fieldset>
     <h3><label>Name:
-      <input type="text" name="name" placeholder="Recipe Name"/>
+      <input type="text" name="name" placeholder="Recipe Name" required/>
     </label></h3>
     <p><label>Author:
       <input type="text" name="author" placeholder="Author Name"/>
@@ -15,7 +15,7 @@
     <label for="cook_time" placeholder="Total Time to Finish">Total: <input type="number" name="cook_time" id="cook_time" min="0"/>min</label>
     <p><label>
       Difficulty
-      <select name="difficulty">
+      <select name="difficulty" required>
         <option value="" disabled selected>Choose one</option>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
@@ -24,7 +24,7 @@
     </label>
     <label>
       Type
-      <select name="meal_type">
+      <select name="meal_type" required>
         <option value="" disabled selected>Choose one</option>
         <option value="breakfast">Breakfast</option>
         <option value="lunch">Lunch</option>
@@ -34,11 +34,11 @@
   </fieldset>
   <fieldset>
     <label for="ingredients"></label>
-    <textarea name="ingredients" id="ingredients" rows="20" cols="60" placeholder="Ingredient List"></textarea>
+    <textarea name="ingredients" id="ingredients" rows="20" cols="60" placeholder="Ingredient List" required></textarea>
   </fieldset>
   <fieldset>
     <label for="directions"></label>
-    <textarea name="directions" id="directions" rows="20" cols="60" placeholder="List of Directions"></textarea>
+    <textarea name="directions" id="directions" rows="20" cols="60" placeholder="List of Directions" required></textarea>
   </fieldset>
   <fieldset>
     <!-- <label for="nutrition">Nutrition Facts</label>

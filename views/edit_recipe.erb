@@ -13,7 +13,7 @@
 
 <form action="/recipe/<%= @recipe[:id] %>" method="post">
   <h3><label>Name:
-    <input type="text" name="name" placeholder="Recipe Name" value="<%= params[:name] || @recipe[:name] %>"/>
+    <input type="text" name="name" placeholder="Recipe Name" value="<%= params[:name] || @recipe[:name] %>"required/>
   </label></h3>
   <p><label>Author:
     <input type="text" name="author" placeholder="Author Name" value="<%= params[:author] || @recipe[:author] %>"/>
@@ -26,22 +26,31 @@
   </label></p>
   <label>
     Difficulty
-    <select name="difficulty">
+    <select name="difficulty" required>
       <option value="" disabled selected>Choose one</option>
       <option value="easy">Easy</option>
       <option value="medium">Medium</option>
       <option value="hard">Hard</option>
     </select>
   </label>
+  <label>
+    Type
+    <select name="meal_type" required>
+      <option value="" disabled selected>Choose one</option>
+      <option value="breakfast">Breakfast</option>
+      <option value="lunch">Lunch</option>
+      <option value="dinner">Dinner</option>
+    </select>
+  </label></p>
 
   <div class = "subcontent">
     <label for="ingredients"><h3>Ingredients</h3></label>
-    <textarea name="ingredients" id="ingredients" rows="20" cols="60" placeholder="Ingredient List"><%= @recipe[:ingredients] %></textarea>
+    <textarea name="ingredients" id="ingredients" rows="20" cols="60" placeholder="Ingredient List" required><%= @recipe[:ingredients] %></textarea>
   </div>
 
   <div class = "subcontent">
     <label for="directions"><h3>Steps</h3></label>
-    <textarea name="directions" id="directions" rows="20" cols="60" placeholder="List of Directions"><%= @recipe[:directions] %></textarea>
+    <textarea name="directions" id="directions" rows="20" cols="60" placeholder="List of Directions" required><%= @recipe[:directions] %></textarea>
   </div>
 
   <div class = "subcontent">
