@@ -5,14 +5,14 @@
       <input type="text" name="name" placeholder="Recipe Name" required/>
     </label></h3>
     <p><label>Author:
-      <input type="text" name="author" placeholder="Author Name"/>
+      <input type="text" name="author" placeholder="Author Name" required/>
     </label></p>
     <p><label>Number of Servings:
-      <input type="number" name="servings""/>
+      <input type="number" name="servings"" required/>
     </label></p>
   </fieldset>
   <fieldset>
-    <label for="cook_time" placeholder="Total Time to Finish">Total: <input type="number" name="cook_time" id="cook_time" min="0"/>min</label>
+    <label for="cook_time" placeholder="Total Time to Finish">Total: <input type="number" name="cook_time" id="cook_time" min="0" required/>min</label>
     <p><label>
       Difficulty
       <select name="difficulty" required>
@@ -48,7 +48,7 @@
       <input type="text" name="url_link" placeholder="URL"/>
     </label></p>
     <p><label><h3>Labels</h3>
-      <textarea cols="60" name="labels" placeholder="Add some labels to help others find this recipe"></textarea>
+      <textarea cols="60" name="labels" placeholder="Add some labels to help others find this recipe" required></textarea>
     </label></p>
   </fieldset>
   <button type="submit">Add recipe</button>

@@ -13,16 +13,16 @@
 
 <form action="/recipe/<%= @recipe[:id] %>" method="post">
   <h3><label>Name:
-    <input type="text" name="name" placeholder="Recipe Name" value="<%= params[:name] || @recipe[:name] %>"required/>
+    <input type="text" name="name" placeholder="Recipe Name" value="<%= params[:name] || @recipe[:name] %>" required/>
   </label></h3>
   <p><label>Author:
-    <input type="text" name="author" placeholder="Author Name" value="<%= params[:author] || @recipe[:author] %>"/>
+    <input type="text" name="author" placeholder="Author Name" value="<%= params[:author] || @recipe[:author] %>" required/>
   </label></p>
   <p><label>Number of Servings:
-    <input type="number" name="servings" value="<%= params[:servings] || @recipe[:servings] %>"/>
+    <input type="number" name="servings" value="<%= params[:servings] || @recipe[:servings] %>" required/>
   </label></p>
   <p><label>Total:
-    <input type="number" name="cook_time" value="<%= params[:cook_time] || @recipe[:cook_time] %>"/> min
+    <input type="number" name="cook_time" value="<%= params[:cook_time] || @recipe[:cook_time] %>" required/> min
   </label></p>
   <label>
     Difficulty
@@ -58,7 +58,7 @@
       <input type="text" name="url_link" placeholder="URL" value="<%= params[:url_link] || @recipe[:url_link] %>"/>
     </label></p>
     <p><label><h3>Labels</h3>
-      <textarea cols="60" name="labels" placeholder="Add some labels to help others find this recipe"><%= @recipe[:labels] %></textarea>
+      <textarea cols="60" name="labels" placeholder="Add some labels to help others find this recipe" required><%= @recipe[:labels] %></textarea>
     </label></p>
   </div>
 
