@@ -15,6 +15,7 @@ class DatabasePersistence
     INSERT INTO recipes
     VALUES (DEFAULT, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, DEFAULT);
     SQL
+    params[:url_link] = 'not_provided' if params[:url_link] == nil
     query(sql, params[:name], params[:author], params[:servings], params[:cook_time], params[:url_link], params[:difficulty], params[:meal_type], params[:labels], params[:ingredients], params[:directions])
   end
 
@@ -24,6 +25,29 @@ class DatabasePersistence
     SQL
     result = query(sql, recipe_id)
     tuple_to_recipe_hash(result.first)
+  end
+
+  def update_recipe(params)
+    sql = <<~SQL
+    UPDATE recipes
+      SET name = $1,
+          author = $2,
+          servings = $3,
+          cook_time = $4,
+          url_link = $5,
+          difficulty = $6,
+          meal_type = $7,
+          labels = $8,
+          ingredients = $9,
+          directions = $10
+    WHERE id = $11
+    SQL
+    params[:url_link] = 'not_provided' if params[:url_link] == nil
+    query(sql, params[:name], params[:author], params[:servings], params[:cook_time], params[:url_link], params[:difficulty], params[:meal_type], params[:labels], params[:ingredients], params[:directions], params[:recipe_id].to_i)
+  end
+
+  def delete_recipe(recipe_id)
+    # FIXME
   end
 
   def allrecipes

@@ -114,8 +114,8 @@ post "/recipe/destroy/:recipe_id" do
 end
 
 post "/recipe/:recipe_id" do
-  # FIX ME
-  "Hello World SUBMIT CHANGES"
+  @storage.update_recipe(params)
+  redirect "/recipe/#{params[:recipe_id]}"
 end
 
 # not_found do
